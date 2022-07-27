@@ -1,5 +1,6 @@
 package io.github.azkalum.logapi.domain.service;
 
+import io.github.azkalum.logapi.domain.exception.NegocioException;
 import io.github.azkalum.logapi.model.Cliente;
 import io.github.azkalum.logapi.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class CatalogoClienteService {
                 .anyMatch(clienteExistente -> !clienteExistente.equals(cliente));
 
         if (emailEmUso){
-            throw new Exception()
+            throw new NegocioException("Já existe um cliente cadastrado com este e-mail");
         }
 
         return clienteRepository.save(cliente);
