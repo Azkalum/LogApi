@@ -1,5 +1,6 @@
 package io.github.azkalum.logapi.controller;
 
+import io.github.azkalum.logapi.domain.service.CatalogoClienteService;
 import io.github.azkalum.logapi.model.Cliente;
 import io.github.azkalum.logapi.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.List;
 public class ClienteController {
 
     private  ClienteRepository clienteRepository;
+    private CatalogoClienteService catalogoClienteService;
 
     @GetMapping
     public List<Cliente> listar(){
@@ -34,7 +36,7 @@ public class ClienteController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente adicionar(@Valid @RequestBody Cliente cliente){
-        return clienteRepository.save(cliente);
+        return catalogoClienteService.salvar(cliente);
 
     }
 
@@ -46,7 +48,7 @@ public class ClienteController {
         }
 
         cliente.setId(clienteId);
-        cliente = clienteRepository.save(cliente);
+        cliente = catalogoClienteService.salvar(cliente);
 
         return ResponseEntity.ok(cliente);
     }
@@ -58,7 +60,7 @@ public class ClienteController {
             return ResponseEntity.notFound().build();
         }
 
-        clienteRepository.deleteById(clienteId);
+        catalogoClienteService.excluir(clienteId);
 
         return ResponseEntity.noContent().build();
     }
