@@ -1,8 +1,8 @@
 package io.github.azkalum.logapi.controller;
 
 import io.github.azkalum.logapi.domain.service.CatalogoClienteService;
-import io.github.azkalum.logapi.model.Cliente;
-import io.github.azkalum.logapi.repository.ClienteRepository;
+import io.github.azkalum.logapi.domain.model.Cliente;
+import io.github.azkalum.logapi.domain.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

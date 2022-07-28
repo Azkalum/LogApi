@@ -1,8 +1,8 @@
 package io.github.azkalum.logapi.domain.service;
 
 import io.github.azkalum.logapi.domain.exception.NegocioException;
-import io.github.azkalum.logapi.model.Cliente;
-import io.github.azkalum.logapi.repository.ClienteRepository;
+import io.github.azkalum.logapi.domain.model.Cliente;
+import io.github.azkalum.logapi.domain.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +13,11 @@ import javax.transaction.Transactional;
 public class CatalogoClienteService {
 
     private ClienteRepository clienteRepository;
+
+    public Cliente buscar(Long clienteId){
+        return clienteRepository.findById(clienteId).orElseThrow(() -> new NegocioException("Cliente não encontrado"));
+    }
+
 
     @Transactional
     public Cliente salvar(Cliente cliente){

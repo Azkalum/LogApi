@@ -1,4 +1,4 @@
-package io.github.azkalum.logapi.model;
+package io.github.azkalum.logapi.domain.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

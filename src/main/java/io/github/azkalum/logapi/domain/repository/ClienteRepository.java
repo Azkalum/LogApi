@@ -1,6 +1,6 @@
-package io.github.azkalum.logapi.repository;
+package io.github.azkalum.logapi.domain.repository;
 
-import io.github.azkalum.logapi.model.Cliente;
+import io.github.azkalum.logapi.domain.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
